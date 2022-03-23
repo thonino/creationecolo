@@ -10,18 +10,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class PartialController extends AbstractController
 {
     #[Route('/nav', name: 'app_partial_nav')]
-    public function nav(): Response
+    public function nav(MenuRepository $menuRepository): Response
     {
-        
         return $this->render('partial/nav.html.twig', [
             'controller_name' => 'PartialController',
-        ]);
-    }
-    public function index(): Response
-    {
-        
-        return $this->render('partial/nav.html.twig', [
-            'controller_name' => 'PartialController',
+            'menus' => $menuRepository->findAll(),
         ]);
     }
     #[Route('/footer', name: 'app_partial_footer')]

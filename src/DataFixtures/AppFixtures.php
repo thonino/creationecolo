@@ -14,11 +14,17 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         // Creation Menu
-        for ($i = 0; $i < 3; $i++){
-            $menu = new Menu;
-            $menu->setName("menu $i");
-            $manager->persist($menu);
-        }
+        
+        $menu = new Menu;
+        $menu->setName("Accessoires");
+        $manager->persist($menu);
+        $menu = new Menu;
+        $menu->setName("Paniers");
+        $manager->persist($menu);
+        $menu = new Menu;
+        $menu->setName("Suspension");
+        $manager->persist($menu);
+
         // Creation Category
         for ($i = 0; $i < 5; $i++){
             $category = new Category;

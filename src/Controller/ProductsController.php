@@ -5,10 +5,10 @@ namespace App\Controller;
 use App\Entity\Products;
 use App\Form\ProductsType;
 use App\Repository\ProductsRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/products')]
 class ProductsController extends AbstractController
@@ -18,6 +18,7 @@ class ProductsController extends AbstractController
     {
         return $this->render('products/index.html.twig', [
             'products' => $productsRepository->findAll(),
+            
         ]);
     }
 
@@ -36,6 +37,7 @@ class ProductsController extends AbstractController
         return $this->renderForm('products/new.html.twig', [
             'product' => $product,
             'form' => $form,
+            
         ]);
     }
 
@@ -44,6 +46,7 @@ class ProductsController extends AbstractController
     {
         return $this->render('products/show.html.twig', [
             'product' => $product,
+            
         ]);
     }
 
@@ -61,6 +64,7 @@ class ProductsController extends AbstractController
         return $this->renderForm('products/edit.html.twig', [
             'product' => $product,
             'form' => $form,
+            
         ]);
     }
 
