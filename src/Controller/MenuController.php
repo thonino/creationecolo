@@ -20,7 +20,6 @@ class MenuController extends AbstractController
             'menus' => $menuRepository->findAll(),
         ]);
     }
-
     #[Route('/new', name: 'app_menu_new', methods: ['GET', 'POST'])]
     public function new(Request $request, MenuRepository $menuRepository): Response
     {
