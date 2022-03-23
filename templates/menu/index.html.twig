@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Menu index{% endblock %}
+{% block title %}Menu{% endblock %}
 
 {% block body %}
 <div class="container">
@@ -26,11 +26,11 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">liste vide</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-    <a class="btn btn-success mx-1"href="{{ path('app_menu_new') }}">Create new</a>
+    <a class="btn btn-success mx-1" href="{{ path('app_menu_new') }}">Ajouter</a>
 </div>
 {% endblock %}
