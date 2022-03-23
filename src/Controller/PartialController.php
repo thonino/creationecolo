@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Controller;
-
+use App\Entity\Menu;
+use App\Repository\MenuRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,6 +12,14 @@ class PartialController extends AbstractController
     #[Route('/nav', name: 'app_partial_nav')]
     public function nav(): Response
     {
+        
+        return $this->render('partial/nav.html.twig', [
+            'controller_name' => 'PartialController',
+        ]);
+    }
+    public function index(): Response
+    {
+        
         return $this->render('partial/nav.html.twig', [
             'controller_name' => 'PartialController',
         ]);
