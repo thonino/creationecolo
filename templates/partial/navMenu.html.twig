@@ -1,0 +1,24 @@
+{% for menu in menus %}
+
+<li class="nav-item dropdown">
+    <a  class="nav-link dropdown-toggle" href="{{ path('app_menu_show',{'id': menu.id}) }}" 
+        id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{ menu.name }}
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li>
+            {% for cat in cats %}
+                {% if cat.menu == menu.name %}
+                <li class="dropdown-item">
+                <a class="text-light text-center mx-2 text-decoration-none"aria-current="page" 
+                    href="{{ path('app_category_show',{'id': cat.id}) }}">
+                    {{ cat.name }}</a>
+                </li>
+                {% endif %}
+            {% endfor %}
+        </li>
+    </ul>
+</li>
+
+{% endfor %}
+

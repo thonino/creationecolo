@@ -8,22 +8,25 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    {# {% for menu in menus %}
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ path('app_category_index') }}">{{ menu.name }}</a>
-                    </li>
-                    {% endfor %} #}
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ path('app_menu_index') }}">menu</a>
+                <li cclass="nav-item dropdown" aria-labelledby="navbarDropdown">
+                    {{ render(controller("App\\Controller\\NavMenuController::navMenu"))}}
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ path('app_category_index') }}">category</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ path('app_products_index') }}">produits</a>
+
+                    <a class="nav-link active" aria-current="page" href="{{ path('app_products_index') }}">Tout Nos produits</a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ path('app_category_index') }}">Category</a>
+                </li>
+                <li class="nav-item">
+                                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ path('app_menu_index') }}">Menu</a>
+                </li>
+                <li class="nav-item">
+
+
             {% if is_granted('ROLE_ADMIN') %}
                 <li class="nav-item" >
                     <a class="nav-link active" aria-current="page" href="{{ path('app_admin') }}">Admin</a>
@@ -53,3 +56,4 @@
         </div>
     </div>
 </nav>
+
