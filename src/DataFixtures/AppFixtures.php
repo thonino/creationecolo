@@ -12,14 +12,14 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         // Creation Produits
-        for ($i = 0; $i < 10; $i++){
+        for ($i = 1; $i < 11; $i++){
             $products = new Products;
             $products->setName("Produit $i");
             $manager->persist($products);
         }
         // Creation Menu
         $menu = new Menu;
-        $menu->setName("Accessoires");
+        $menu->setName("Nouveautés");
         $manager->persist($menu);
         $this->setCategory1($menu,$manager);
         $menu = new Menu;
@@ -27,7 +27,7 @@ class AppFixtures extends Fixture
         $manager->persist($menu);
         $this->setCategory2($menu,$manager);
         $menu = new Menu;
-        $menu->setName("Objets");
+        $menu->setName("Accessoires");
         $manager->persist($menu);
         $this->setCategory3($menu,$manager);
     } 
@@ -35,7 +35,7 @@ class AppFixtures extends Fixture
         public function setCategory1(Menu $menu, ObjectManager $manager)
         {
         $category = new Category;
-        $category->setName("Sac");
+        $category->setName("Plume");
         $category->setMenu($menu);
         $manager->persist($category);
         }
@@ -53,7 +53,7 @@ class AppFixtures extends Fixture
         public function setCategory3(Menu $menu, ObjectManager $manager)
         {
         $category = new Category;
-        $category->setName("Plume");
+        $category->setName("Sac");
         $category->setMenu($menu);
         $manager->persist($category);
         $manager->flush();
