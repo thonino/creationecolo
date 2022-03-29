@@ -12,22 +12,19 @@
                     {{ render(controller("App\\Controller\\NavMenuController::navMenu"))}}
                 </li>
                 </li>
-
                     <a class="nav-link active" aria-current="page" href="{{ path('app_products_index') }}">Tout Nos produits</a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ path('app_category_index') }}">Category</a>
+            {% if is_granted('ROLE_ADMIN') %}
+                            <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{ path('app_category_index') }}">Categorie</a>
                 </li>
                 <li class="nav-item">
                                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{ path('app_menu_index') }}">Menu</a>
                 </li>
                 <li class="nav-item">
-
-
-            {% if is_granted('ROLE_ADMIN') %}
                 <li class="nav-item" >
                     <a class="nav-link active" aria-current="page" href="{{ path('app_admin') }}">Admin</a>
                 </li>
