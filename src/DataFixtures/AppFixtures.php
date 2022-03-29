@@ -1,9 +1,7 @@
 <?php
 
 namespace App\DataFixtures;
-
 use App\Entity\Menu;
-use App\Entity\Users;
 use App\Entity\Category;
 use App\Entity\Products;
 use Doctrine\Persistence\ObjectManager;
@@ -13,55 +11,51 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        // Creation Menu
-        
-        $menu = new Menu;
-        $menu->setName("Accessoires");
-        $manager->persist($menu);
-        $menu = new Menu;
-        $menu->setName("Paniers");
-        $manager->persist($menu);
-        $menu = new Menu;
-        $menu->setName("Suspension");
-        $manager->persist($menu);
-
-        // Creation Category
-        for ($i = 0; $i < 5; $i++){
-            $category = new Category;
-            $category->setName("Category $i");
-            $manager->persist($category);
-        }
         // Creation Produits
-        for ($i = 0; $i < 20; $i++){
+        for ($i = 0; $i < 10; $i++){
             $products = new Products;
             $products->setName("Produit $i");
             $manager->persist($products);
         }
-        // Roles Admin 
-        $users = new Users;
-        $users->setEmail("thonino@gmail.com");
-        $users->setPassword("$2y$13\$Wd31Kq5FzYD70ewiB1b/MOI0IP7ts5YrhQJAjFz40iGjHxhPXFxm.");
-        $users->setFirstname("Thonino");
-        $users->setLastname("Ben");
-        $users->setAddress("1 rue de la joie");
-        $users->setZipcode("75001");
-        $users->setCountry("France");
-        $users->setCity("Paris");
-        $users->setPhone("0616956773");
-        $users->setRoles(['ROLE_ADMIN']);
-        $manager->persist($users);
-        // Roles User 
-        $users = new Users;
-        $users->setEmail("toky@gmail.com");
-        $users->setPassword("$2y$13\$cPBmRKhQFiRxk3i8B.hUCubyMm3m0umy8aNs2S/AKhh1pMpPnVKHu");
-        $users->setFirstname("Toky");
-        $users->setLastname("Ben");
-        $users->setAddress("2 rue de la joie");
-        $users->setZipcode("75002");
-        $users->setCountry("France");
-        $users->setCity("Paris");
-        $users->setPhone("0616956773");
-        $manager->persist($users);
+        // Creation Menu
+        $menu = new Menu;
+        $menu->setName("Accessoires");
+        $manager->persist($menu);
+        $this->setCategory1($menu,$manager);
+        $menu = new Menu;
+        $menu->setName("Rangements");
+        $manager->persist($menu);
+        $this->setCategory2($menu,$manager);
+        $menu = new Menu;
+        $menu->setName("Objets");
+        $manager->persist($menu);
+        $this->setCategory3($menu,$manager);
+    } 
+        // Creation des Category
+        public function setCategory1(Menu $menu, ObjectManager $manager)
+        {
+        $category = new Category;
+        $category->setName("Sac");
+        $category->setMenu($menu);
+        $manager->persist($category);
+        }
+        public function setCategory2(Menu $menu, ObjectManager $manager)
+        {
+        $category = new Category;
+        $category->setName("Caisse");
+        $category->setMenu($menu);
+        $manager->persist($category);
+        $category = new Category;
+        $category->setName("Panier");
+        $category->setMenu($menu);
+        $manager->persist($category);
+        }
+        public function setCategory3(Menu $menu, ObjectManager $manager)
+        {
+        $category = new Category;
+        $category->setName("Plume");
+        $category->setMenu($menu);
+        $manager->persist($category);
         $manager->flush();
     }
 }
