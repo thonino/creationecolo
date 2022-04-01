@@ -4,8 +4,8 @@
 
 {% block body %}
 <div class="d-flex flex-column align-items-center">
-    <h1 class="text-center">Tout nos produits </h1>
-    <a class="btn btn-success"style="max-width: 350px;" href="{{ path('app_products_new') }}">Nouveau Produit</a>
+    <h1 class="text-center">Tout nos produits <a class="btn btn-success"style="max-width: 350px;" href="{{ path('app_products_new') }}">Nouveau Produit</a></h1>
+    
 </div>
 <div class="d-flex justify-content-center flex-wrap ">
     {% for product in products %}
