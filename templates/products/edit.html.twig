@@ -3,8 +3,8 @@
 {% block title %}Modifier Produitst{% endblock %}
 
 {% block body %}
-<div class="container">
-    <h1>Modifier Produitst</h1>
+<div class="container  text-dark">
+    <h1 class="txt">Modifier Produitst</h1>
     {{ include('products/_form.html.twig', {'button_label': 'Appliquer'}) }}
     <a class="btn btn-primary" href="{{ path('app_products_index') }}">back to list</a>
     {{ include('products/_delete_form.html.twig') }}
