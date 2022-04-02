@@ -3,32 +3,14 @@
 {% block title %}Products{% endblock %}
 
 {% block body %}
-<div class="container">
-    <h1 class="txt">Produits</h1>
-    <table class="table  text-dark">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ product.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ product.name }}</td>
-            </tr>
-            <tr>
-                <th>Image</th>
-                <td>{{ product.image }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ product.description }}</td>
-            </tr>
-            <tr>
-                <th>Categorie</th>
-                <td>{{ product.category }}</td>
-            </tr>
-        </tbody>
-    </table>
-    <a class="btn btn-primary mx-1" href="{{ path('app_products_index') }}">back to list</a>
+<div class="d-flex flex-column align-items-center text-center">
+    <h3 class="txt">{{ product.name }}</h3>
+    <div class="card"style="max-width: 400px;">
+        <img src="/img/{{product.image}}.jpg" class="card-img-top" alt="...">
+    </div>
+        <lu class="fs-4 text-dark"> Numero : <span class="fs-5 text-secondary"> {{ product.id }}</span></lu>
+        <lu class="fs-4 text-dark"> Categorie : <span class="fs-5 text-secondary"> {{ product.category }}</span></lu>
+        <lu class="fs-4 txt"> Description : <br> <span class="fs-5 text-secondary">{{ product.description }}</span></lu>
+    <a class="btn btn-primary mx-1" href="{{ path('app_products_index') }}">Retour</a>
 </div>
 {% endblock %}
