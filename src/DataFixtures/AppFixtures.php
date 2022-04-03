@@ -39,31 +39,31 @@ class AppFixtures extends Fixture
         $manager->persist($category);
         $this->setChaussures($category,$manager);
         $category = new Category;
-        $category->setName("Assiette");
+        $category->setName("Assiettes");
         $category->setMenu($menu);
         $manager->persist($category);
-        $this->setAssiette($category,$manager);
+        $this->setAssiettes($category,$manager);
         }
         public function setRangements(Menu $menu, ObjectManager $manager)
         {
         $category = new Category;
-        $category->setName("Caisse");
+        $category->setName("Caisses");
         $category->setMenu($menu);
         $manager->persist($category);
-        $this->setCaisse($category,$manager);
+        $this->setCaisses($category,$manager);
         $category = new Category;
-        $category->setName("Panier");
+        $category->setName("Paniers");
         $category->setMenu($menu);
         $manager->persist($category);
-        $this->setPanier($category,$manager);
+        $this->setPaniers($category,$manager);
         }
         public function setAccessoires(Menu $menu, ObjectManager $manager)
         {
         $category = new Category;
-        $category->setName("Sac");
+        $category->setName("Sacs");
         $category->setMenu($menu);
         $manager->persist($category);
-        $this->setSac($category,$manager);
+        $this->setSacs($category,$manager);
 
         }
 
@@ -89,7 +89,7 @@ class AppFixtures extends Fixture
             $products->setCategory($category);
             $manager->persist($products);
         }
-        public function setAssiette(Category $category, ObjectManager $manager)
+        public function setAssiettes(Category $category, ObjectManager $manager)
         {
             $products = new Products;
             $products->setName("Assiette A");
@@ -106,7 +106,7 @@ class AppFixtures extends Fixture
             $products->setCategory($category);
             $manager->persist($products);
         }
-        public function setCaisse(Category $category, ObjectManager $manager)
+        public function setCaisses(Category $category, ObjectManager $manager)
         {
             $products = new Products;
             $products->setName("Pot A");
@@ -116,7 +116,7 @@ class AppFixtures extends Fixture
             $products->setCategory($category);
             $manager->persist($products);
         }
-        public function setPanier(Category $category, ObjectManager $manager)
+        public function setPaniers(Category $category, ObjectManager $manager)
         {
 
             $products = new Products;
@@ -134,7 +134,7 @@ class AppFixtures extends Fixture
             $products->setCategory($category);
             $manager->persist($products);
         }
-        public function setSac(Category $category, ObjectManager $manager)
+        public function setSacs(Category $category, ObjectManager $manager)
         {
             $products = new Products;
             $products->setName("Sac");
