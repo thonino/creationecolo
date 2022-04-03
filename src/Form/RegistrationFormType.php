@@ -20,11 +20,11 @@ class RegistrationFormType extends AbstractType
         $builder
         ->add('firstname', TextType::class,[ 'attr' => ['class' => 'form-control'], 'label' => 'Prénom'])
         ->add('lastname', TextType::class,[ 'attr' => ['class' => 'form-control'], 'label' => 'Nom'])
-        ->add('address', TextType::class,[ 'attr' => ['class' => 'form-control'],'label' => 'Addresse'])
+        ->add('address', TextType::class,[ 'attr' => ['class' => 'form-control'],'label' => 'Adresse'])
         ->add('zipcode', TextType::class,[ 'attr' => ['class' => 'form-control'],'label' => 'Code postal'])
         ->add('country', TextType::class,[ 'attr' => ['class' => 'form-control'],'label' => 'Pays'])
-        ->add('city', TextType::class,[ 'attr' => ['class' => 'form-control'],'label' => 'ville'])
-        ->add('phone', TextType::class,[ 'attr' => ['class' => 'form-control'],'label' => 'téléphone'])
+        ->add('city', TextType::class,[ 'attr' => ['class' => 'form-control'],'label' => 'Ville'])
+        ->add('phone', TextType::class,[ 'attr' => ['class' => 'form-control'],'label' => 'Téléphone'])
         ->add('email', TextType::class,[ 'attr' => ['class' => 'form-control'],'label' => 'E-mail'])
         ->add(  'RGPDConsent', CheckboxType::class, [
                 'mapped' => false,'constraints' => [ new IsTrue([
