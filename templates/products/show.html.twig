@@ -11,6 +11,7 @@
         <lu class="fs-4 text-dark"> Numero : <span class="fs-5 text-secondary"> {{ product.id }}</span></lu>
         <lu class="fs-4 text-dark"> Categorie : <span class="fs-5 text-secondary"> {{ product.category }}</span></lu>
         <lu class="fs-4 txt"> Description : <br> <span class="fs-5 text-secondary">{{ product.description }}</span></lu>
+    <a class="btn btn-warning mb-2 mt-2" href="{{ path('cart_add', {'product' : product.id})}}">Ajouter au panier</a>
     <a class="btn btn-primary mx-1" href="{{ path('app_products_index') }}">Retour</a>
 </div>
 {% endblock %}
