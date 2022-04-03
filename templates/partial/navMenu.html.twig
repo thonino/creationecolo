@@ -6,7 +6,6 @@
             {{ menu.name }}
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <li>
             {% for cat in cats %}
                 {% if cat.menu == menu.name %}
                 <li class="dropdown-item">
@@ -16,7 +15,6 @@
                 </li>
                 {% endif %}
             {% endfor %}
-        </li>
     </ul>
 </li>
 
