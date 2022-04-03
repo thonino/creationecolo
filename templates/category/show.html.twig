@@ -6,7 +6,7 @@
 
 <div class="d-flex flex-column align-items-center">
     <h3 class="fx-5 text-center text-dark">
-    Tout Nos Produits 
+    {{ category.name }} 
     {% if is_granted('ROLE_ADMIN') %}
     <a class="btn btn-success btn-sm"style="max-width: 350px;" href="{{ path('app_products_new') }}">Nouveau Produit</a>
     {% endif %}

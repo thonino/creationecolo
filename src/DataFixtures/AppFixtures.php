@@ -29,10 +29,10 @@ class AppFixtures extends Fixture
         public function setNouveautes(Menu $menu, ObjectManager $manager)
         {
         $category = new Category;
-        $category->setName("Object");
+        $category->setName("Objets");
         $category->setMenu($menu);
         $manager->persist($category);
-        $this->setObject($category,$manager);
+        $this->setObjets($category,$manager);
         $category = new Category;
         $category->setName("Chaussures");
         $category->setMenu($menu);
@@ -67,7 +67,7 @@ class AppFixtures extends Fixture
 
         }
 
-        public function setObject(Category $category, ObjectManager $manager)
+        public function setObjets(Category $category, ObjectManager $manager)
         {
             // Creation Produits
             $products = new Products;
