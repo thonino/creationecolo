@@ -2,17 +2,32 @@
 
 {% block title %}Accueil{% endblock %}
 
-
-
 {% block top %}
+
 <div class="d-flex justify-content-center">
-<a href="{{ path('app_home') }}"><img src="img/logo.jpg" width="100" alt="" class="d-inline-block align-middle mr-2"/></a>
+<div class="card mb-3" style="max-width: 700px;">
+  <div class="row g-0">
+    <div class="col-sm-4 d-flex justify-content-center p-1">
+      <img src="img/logo.jpg" width="150" class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-sm">
+      <div class="card-body text-center">
+        <h5 class="card-title fs-3 txt " style="margin-top: -15px">Création Ecolo</h5>
+        <p class="card-text text-light">Artisanat marocain 100% fait main</p>
+        <p class="card-text text-light">Votre Boutique en ligne</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{# <a href="{{ path('app_home') }}"><img src="img/logo.jpg" width="150" alt="" class="d-inline-block align-middle mr-2"/></a>
     <div class="">
         <p class="fs-3 txt mx-1"style="margin-top: -10px">Création Ecolo  </p>
         <p class="fs-6 txt mx-2" style="margin-top: -25px">Artisanat marocain 100% fait main  </p>
         <p class="fs-6 mx-2" style="margin-top: -20px">Votre Boutique en ligne  </p>
         <p class="fs-6 mx-2" style="margin-top: -20px">Commandez Maintenant  </p>
-    </div>
+    </div> #}
 </div>
 
 {% endblock %}
