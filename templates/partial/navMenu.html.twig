@@ -8,11 +8,10 @@
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             {% for cat in cats %}
                 {% if cat.menu == menu.name %}
-                <li class="dropdown-item">
-                <a class="text-light text-center mx-2 text-decoration-none"aria-current="page" 
+                <a class="dropdown-item text-light text-center text-decoration-none"aria-current="page" 
                     href="{{ path('app_category_show',{'id': cat.id}) }}">
                     {{ cat.name }}</a>
-                </li>
+                
                 {% endif %}
             {% endfor %}
     </ul>
