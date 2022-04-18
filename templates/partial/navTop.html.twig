@@ -1,0 +1,35 @@
+
+<nav class="navbar py-0 navbar-expand-sm navbar-light bg-white p-2">
+
+    <a class="navbar-brand" href="{{ path('app_home') }}">
+    <img src="img/logo.jpg" width="30" alt="" class="d-inline-block align-middle mr-2"/>
+    Création Ecolo</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"data-bs-target="#navbarSupportedContent" 
+            aria-controls="navbarSupportedContent"aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto ">
+            <li>
+                <a class="nav-link " aria-current="page" href="https://www.facebook.com/Création-Écolo-107410908579973"><i class="bi bi-facebook"></i></a>
+            </li>
+            <li>
+                <a class="nav-link " aria-current="page" href="#"><i class="bi bi-instagram"></i></a>
+            </li>
+            <li>
+                <a class="nav-link " aria-current="page" href="https://www.pinterest.fr/rjbira/_created"><i class="bi bi-pinterest"></i></a>
+            </li>
+        </ul>
+            
+        {% if is_granted('ROLE_ADMIN') %}
+            <a class="nav-item text-dark text-decoration-none mx-2" aria-current="page" href="{{ path('app_admin') }}">Admin</a>
+            <a class="nav-item text-dark text-decoration-none" aria-current="page" href="{{ path('app_logout') }}">Déconnexion</a>
+        {% elseif app.user and not is_granted('ROLE_ADMIN') %}
+            <a class="nav-item text-dark text-decoration-none mx-2" aria-current="page" href="#">Compte</a>
+            <a class="nav-item text-dark  text-decoration-none" aria-current="page" href="{{ path('app_logout') }}">Déconnexion</a>
+        {% else %}
+            <a class="nav-item text-dark text-decoration-none mx-2" aria-current="page" href="{{ path('app_register') }}">S'inscrire</a>
+            <a class="nav-item text-dark text-decoration-none" aria-current="page" href="{{ path('app_login') }}">Connexion</a>
+        {% endif %}
+    </div>
+</nav>

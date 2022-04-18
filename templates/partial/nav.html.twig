@@ -1,7 +1,5 @@
 
-<nav class="navbar py-0 navbar-expand-lg navbar-light bg-light p-2">
-
-    <a class="navbar-brand" href="{{ path('app_home') }}">Création Ecolo</a>
+<nav class="navbar  navbar-expand-md navbar-light bg-light p-0 " style="border-radius: 5px;margin-top:-15px">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"data-bs-target="#navbarSupportedContent" 
             aria-controls="navbarSupportedContent"aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -16,18 +14,6 @@
             </li>
         </ul>
                 <a class="nav-item text-decoration-none text-dark" aria-current="page" href="{{ path('cart_show') }}">
-                    <i class="bi-cart text-secondary "> </i>Panier
-                </a>
-            
-        {% if is_granted('ROLE_ADMIN') %}
-            <a class="nav-item text-dark text-decoration-none mx-2" aria-current="page" href="{{ path('app_admin') }}">Admin</a>
-            <a class="nav-item text-dark text-decoration-none" aria-current="page" href="{{ path('app_logout') }}">Déconnexion</a>
-        {% elseif app.user and not is_granted('ROLE_ADMIN') %}
-            <a class="nav-item text-dark text-decoration-none mx-2" aria-current="page" href="#">Compte</a>
-            <a class="nav-item text-dark  text-decoration-none" aria-current="page" href="{{ path('app_logout') }}">Déconnexion</a>
-        {% else %}
-            <a class="nav-item text-dark text-decoration-none mx-2" aria-current="page" href="{{ path('app_register') }}">S'inscrire</a>
-            <a class="nav-item text-dark text-decoration-none" aria-current="page" href="{{ path('app_login') }}">Connexion</a>
-        {% endif %}
+                    <i class="bi-cart text-secondary fs-1 mx-1"> </i></a>
     </div>
 </nav>
