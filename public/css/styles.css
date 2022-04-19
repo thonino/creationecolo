@@ -1,9 +1,37 @@
 .fond{
     background-color:#994d00;
 }
+.fond1{
+    background-color:#fff0e9;
+}
+.fond2{
+    background-color:#fef9f3;
+}
 .txt{
     color: #994d00;
 }
+
+.dropdown-item{
+    background-color:#fff0e9;
+ }
+.dropdown-item:hover{
+    background-color:#ffe4c8;
+ }
+ .dropdown-menu{
+    border: solid 0px;
+ }
+
+
 .navbar-custom {
     height: 100px;
-  }
+}
+
+.txtFont1{
+    font-family: 'Mr De Haviland', cursive;
+}
+.txtFont2{
+    font-family: 'Georama', sans-serif;
+}
+
+
+.carousel .carousel-item {height: 300px;}
