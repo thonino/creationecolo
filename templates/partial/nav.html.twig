@@ -1,6 +1,6 @@
 
 <nav class="navbar  navbar-expand-md navbar-light container-fluid fond1 p-0 " 
-    style="max-width:900px;border-radius: 5px;margin-top:-15px;">
+    style="width:800px;border-radius: 5px;margin-top:-15px;">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"data-bs-target="#navbarSupportedContent" 
             aria-controls="navbarSupportedContent"aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -11,10 +11,12 @@
                 {{ render(controller("App\\Controller\\NavMenuController::navMenu"))}}
             </li>
             </li>
-                <a class="nav-link txtFont2 mt-2" aria-current="page" href="{{ path('app_products_index') }}">Tout nos produits</a>
+                <a class="nav-link txtFont2 mt-2" aria-current="page" href="{{ path('app_products_index') }}">Tout Afficher</a>
             </li>
         </ul>
                 <a class="nav-item text-decoration-none text-dark" aria-current="page" href="{{ path('cart_show') }}">
-                    <i class="bi-cart text-secondary fs-1 mx-1"> </i></a>
+                    <i class="bi-cart text-secondary fs-4 mx-1"> </i></a>
     </div>
 </nav>
+
+
