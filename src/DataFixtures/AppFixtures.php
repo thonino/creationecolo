@@ -21,6 +21,14 @@ class AppFixtures extends Fixture
         $manager->persist($menu);
         $this->setRangements($menu,$manager);
         $menu = new Menu;
+        $menu->setName("Luminaires");
+        $manager->persist($menu);
+        $this->setLuminaires($menu,$manager);
+        $menu = new Menu;
+        $menu->setName("Textiles");
+        $manager->persist($menu);
+        $this->setTextiles($menu,$manager);
+        $menu = new Menu;
         $menu->setName("Accessoires");
         $manager->persist($menu);
         $this->setAccessoires($menu,$manager);
@@ -38,11 +46,6 @@ class AppFixtures extends Fixture
         $category->setMenu($menu);
         $manager->persist($category);
         $this->setChaussures($category,$manager);
-        $category = new Category;
-        $category->setName("Assiettes");
-        $category->setMenu($menu);
-        $manager->persist($category);
-        $this->setAssiettes($category,$manager);
         }
         public function setRangements(Menu $menu, ObjectManager $manager)
         {
@@ -57,6 +60,22 @@ class AppFixtures extends Fixture
         $manager->persist($category);
         $this->setPaniers($category,$manager);
         }
+        public function setLuminaires(Menu $menu, ObjectManager $manager)
+        {
+        $category = new Category;
+        $category->setName("Suspensions");
+        $category->setMenu($menu);
+        $manager->persist($category);
+        $this->setSuspensions($category,$manager);
+        }
+        public function setTextiles(Menu $menu, ObjectManager $manager)
+        {
+        $category = new Category;
+        $category->setName("Tapis");
+        $category->setMenu($menu);
+        $manager->persist($category);
+        $this->setTapis($category,$manager);
+        }
         public function setAccessoires(Menu $menu, ObjectManager $manager)
         {
         $category = new Category;
@@ -64,45 +83,32 @@ class AppFixtures extends Fixture
         $category->setMenu($menu);
         $manager->persist($category);
         $this->setSacs($category,$manager);
-
+        $category = new Category;
+        $category->setName("Plateaux");
+        $category->setMenu($menu);
+        $manager->persist($category);
+        $this->setPlateaux($category,$manager);
         }
 
+
+        // Creation Produits
         public function setObjets(Category $category, ObjectManager $manager)
         {
-            // Creation Produits
             $products = new Products;
             $products->setName("Cactus");
             $products->setPrice("20");
             $products->setImage("cactus1");
-            $products->setDescription("cactus blabla");
+            $products->setDescription("Description");
             $products->setCategory($category);
             $manager->persist($products);
         }
-
         public function setChaussures(Category $category, ObjectManager $manager)
         {
             $products = new Products;
             $products->setName("Babouche");
             $products->setPrice("30");
             $products->setImage("babouche1");
-            $products->setDescription("babouche blabla");
-            $products->setCategory($category);
-            $manager->persist($products);
-        }
-        public function setAssiettes(Category $category, ObjectManager $manager)
-        {
-            $products = new Products;
-            $products->setName("Assiette A");
-            $products->setPrice("28");
-            $products->setImage("assiette1");
-            $products->setDescription("Assiette blabla");
-            $products->setCategory($category);
-            $manager->persist($products);
-            $products = new Products;
-            $products->setName("Assiette B");
-            $products->setPrice("31");
-            $products->setImage("assiette2");
-            $products->setDescription("Assiette blabla");
+            $products->setDescription("Description");
             $products->setCategory($category);
             $manager->persist($products);
         }
@@ -112,7 +118,27 @@ class AppFixtures extends Fixture
             $products->setName("Pot A");
             $products->setPrice("25");
             $products->setImage("pot1");
-            $products->setDescription("pot blabla");
+            $products->setDescription("Description");
+            $products->setCategory($category);
+            $manager->persist($products);
+        }
+        public function setSuspensions(Category $category, ObjectManager $manager)
+        {
+            $products = new Products;
+            $products->setName("Suspension A");
+            $products->setPrice("25");
+            $products->setImage("suspension1");
+            $products->setDescription("Description");
+            $products->setCategory($category);
+            $manager->persist($products);
+        }
+        public function setTapis(Category $category, ObjectManager $manager)
+        {
+            $products = new Products;
+            $products->setName("Tapis A");
+            $products->setPrice("25");
+            $products->setImage("tapis1");
+            $products->setDescription("Description");
             $products->setCategory($category);
             $manager->persist($products);
         }
@@ -123,14 +149,14 @@ class AppFixtures extends Fixture
             $products->setName("Pot B");
             $products->setPrice("25");
             $products->setImage("pot2");
-            $products->setDescription("pot blabla");
+            $products->setDescription("Description");
             $products->setCategory($category);
             $manager->persist($products);
             $products = new Products;
             $products->setName("Pot C");
             $products->setPrice("28");
             $products->setImage("pot3");
-            $products->setDescription("pot blabla");
+            $products->setDescription("Description");
             $products->setCategory($category);
             $manager->persist($products);
         }
@@ -140,11 +166,28 @@ class AppFixtures extends Fixture
             $products->setName("Sac");
             $products->setPrice("38");
             $products->setImage("sac1");
-            $products->setDescription("Sac blabla");
+            $products->setDescription("Description");
             $products->setCategory($category);
             $manager->persist($products);
+        }
 
-            $manager->flush();
+        public function setPlateaux(Category $category, ObjectManager $manager)
+        {
+            $products = new Products;
+            $products->setName("Plateau A");
+            $products->setPrice("28");
+            $products->setImage("plateau1");
+            $products->setDescription("Description");
+            $products->setCategory($category);
+            $manager->persist($products);
+            $products = new Products;
+            $products->setName("Plateau B");
+            $products->setPrice("31");
+            $products->setImage("plateau2");
+            $products->setDescription("Description");
+            $products->setCategory($category);
+            $manager->persist($products);
+        $manager->flush();
     }
 }
 
