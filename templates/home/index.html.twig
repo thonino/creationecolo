@@ -47,13 +47,15 @@ Parcourez nos pièces issues de l’artisanat marocain (malles de rangement, cha
  <button onclick="toggle()" class="btn btn-sm btn-secondary">+</button>
 <div id="toggle" class=""></div>
 
-{# {% for menu in menus %}
+{% for menu in menus %}
     <a  class="text-dark fond1 txtFont2 mx-2 text-decoration-none" href="{{ path('app_menu_show',{'id': menu.id}) }}">
         <div class="card"style="max-width: 800px;">
-        <img src="/img/{{menu.image}}.jpg" class="card-img-top" alt="...">
+        <img src="/img/{{menu.id}}.jpg" class="card-img-top" alt="...">
     </div>
             {{ menu.name }}
     </a>
-{% endfor %} #}
+{% endfor %}
+
+
 
 {% endblock %}

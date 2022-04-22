@@ -8,16 +8,16 @@
     <table class="table text-dark">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Nom</th>
+                <th>Position</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for menu in menus %}
             <tr>
-                <td>{{ menu.id }}</td>
                 <td>{{ menu.name }}</td>
+                <td>{{ menu.numbre }}</td>
                 <td>
                     <a class="btn btn-primary mx-1" href="{{ path('app_menu_show', {'id': menu.id}) }}">Afficher</a>
                     <a class="btn btn-success mx-1" href="{{ path('app_menu_edit', {'id': menu.id}) }}">modifier</a>

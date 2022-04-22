@@ -13,23 +13,33 @@ class AppFixtures extends Fixture
     {
         // Creation Menu
         $menu = new Menu;
+        $menu->setNumbre("1");
         $menu->setName("Nouveautés");
+        $menu->setImage("nouveautes");
         $manager->persist($menu);
         $this->setNouveautes($menu,$manager);
         $menu = new Menu;
+        $menu->setNumbre("2");
         $menu->setName("Rangements");
+        $menu->setImage("rangements");
         $manager->persist($menu);
         $this->setRangements($menu,$manager);
         $menu = new Menu;
+        $menu->setNumbre("3");
         $menu->setName("Luminaires");
+        $menu->setImage("luminaires");
         $manager->persist($menu);
         $this->setLuminaires($menu,$manager);
         $menu = new Menu;
+        $menu->setNumbre("4");
         $menu->setName("Textiles");
+        $menu->setImage("textiles");
         $manager->persist($menu);
         $this->setTextiles($menu,$manager);
         $menu = new Menu;
+        $menu->setNumbre("5");
         $menu->setName("Accessoires");
+        $menu->setImage("accessoires");
         $manager->persist($menu);
         $this->setAccessoires($menu,$manager);
     } 
