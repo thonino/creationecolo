@@ -1,9 +1,7 @@
-
-<nav class="navbar py-0 navbar-expand-sm navbar-light fond2 p-2">
-
+<nav class="navbar py-0 navbar-expand-sm navbar-light fond2 ">
     <a class="navbar-brand txtFont1 fs-4" href="{{ path('app_home') }}">
     <img src="/img/logo.jpg" width="30" alt="" class="d-inline-block align-middle mr-2 mx-2"style="margin-top: -5px"/>Création Ecolo</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"data-bs-target="#navbarSupportedContent" 
+    <button class="navbar-toggler mt-1 mx-1" type="button" data-bs-toggle="collapse"data-bs-target="#navbarSupportedContent" 
             aria-controls="navbarSupportedContent"aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
@@ -24,14 +22,14 @@
             </form>
         </ul>
         {% if is_granted('ROLE_ADMIN') %}
-            <a class="nav-item text-dark text-decoration-none mx-2" aria-current="page" href="{{ path('app_admin') }}">Admin</a>
-            <a class="nav-item text-dark text-decoration-none" aria-current="page" href="{{ path('app_logout') }}">Déconnexion</a>
+            <a class="nav-item text-dark text-decoration-none " aria-current="page" href="{{ path('app_admin') }}">Admin</a>
+            <a class="nav-item text-dark text-decoration-none mx-2" aria-current="page" href="{{ path('app_logout') }}">Déconnexion</a>
         {% elseif app.user and not is_granted('ROLE_ADMIN') %}
-            <a class="nav-item text-dark text-decoration-none mx-2" aria-current="page" href="#">Compte</a>
-            <a class="nav-item text-dark  text-decoration-none" aria-current="page" href="{{ path('app_logout') }}">Déconnexion</a>
+            <a class="nav-item text-dark text-decoration-none" aria-current="page" href="#">Compte</a>
+            <a class="nav-item text-dark  text-decoration-none mx-2" aria-current="page" href="{{ path('app_logout') }}">Déconnexion</a>
         {% else %}
-            <a class="nav-item text-dark text-decoration-none mx-2" aria-current="page" href="{{ path('app_register') }}">S'inscrire</a>
-            <a class="nav-item text-dark text-decoration-none" aria-current="page" href="{{ path('app_login') }}">Connexion</a>
+            <a class="nav-item text-dark text-decoration-none" aria-current="page" href="{{ path('app_register') }}">S'inscrire</a>
+            <a class="nav-item text-dark text-decoration-none mx-2" aria-current="page" href="{{ path('app_login') }}">Connexion</a>
         {% endif %}
     </div>
 </nav>
