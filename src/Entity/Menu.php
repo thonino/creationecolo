@@ -16,6 +16,12 @@ class Menu
     #[ORM\Column(type: 'string', length: 50)]
     private $name;
 
+    #[ORM\Column(type: 'string', length: 2, nullable: true)]
+    private $numbre;
+
+    #[ORM\Column(type: 'string', length: 50, nullable: true)]
+    private $image;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -35,5 +41,29 @@ class Menu
     public function __toString(){
         return $this->name;
 
+    }
+
+    public function getNumbre(): ?string
+    {
+        return $this->numbre;
+    }
+
+    public function setNumbre(?string $numbre): self
+    {
+        $this->numbre = $numbre;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
     }
 }
