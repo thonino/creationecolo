@@ -1,11 +1,10 @@
 {% for menu in menus |sort((a, b) => a.numbre <=> b.numbre) %}
-
-<li class="nav-item dropdown ">
+<li class="nav-item dropdown mt-2 ">
     <a  class="nav-link dropdown-toggle text-dark fond1 txtFont2 "  
         id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {{ menu.name }}
     </a>
-    <ul class="dropdown-menu fond1" aria-labelledby="navbarDropdown">
+    <ul class="dropdown-menu fond1 " style="margin-left:-12px" aria-labelledby="navbarDropdown">
             {% for cat in cats %}
                 {% if cat.menu == menu.name %}
                 <a class="dropdown-item fond1 text-dark text-center text-decoration-none "aria-current="page" 
