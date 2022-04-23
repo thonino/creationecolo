@@ -25,12 +25,11 @@
                     <a class="btn fond mb-2" href="{{ path('cart_add', {'products' : product.id})}}">Ajouter au panier</a><br>
                     <a class="btn btn-secondary mb-2  mx-2" href="{{ path('app_products_show', {'id': product.id}) }}">Voir</a>
                     </span>
-                
             </div>
         </div>
     {% else %}
         <p>Aucune donnée à afficher</p>
     {% endfor %}
 </div>
-
+<br>
 {% endblock %}
