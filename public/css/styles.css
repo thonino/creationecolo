@@ -34,5 +34,12 @@
 }
 
 
-.carousel .carousel-item {height: 300px;}
+    .carousel .carousel-item {height: 300px; }
+
+
+
+
+@media only screen and (max-width:400px) and (min-width:0px){ 
+    .carousel .carousel-item {height: 50px; }
+}
 
