@@ -3,7 +3,7 @@
 {% block title %}Accueil{% endblock %}
 
 {% block top %}
-<div class="container-fluid"style="max-width:1200px;">
+<div class="scroll container-fluid"style="max-width:1200px;">
   <div class="d-flex justify-content-center ">
     <div class="d-flex justify-content-center " >
         <div class="mx-2 mb-0 m-0">
@@ -23,7 +23,7 @@
   {% endblock %}
 
   {% block body %}
-  <div class="mt-2 container" >
+  <div class="scroll mt-2 container" >
                   <div id="carouselExampleCaptions" class="carousel slide " data-bs-ride="carousel">
                       <div class="carousel-inner ">
                           <div class="carousel-item active">
@@ -41,16 +41,16 @@
                       </button>
                   </div>
   </div>
-  <p class="container mt-2 mb-2 ">
+  <p class="scroll container mt-2 mb-2 "style="max-width: 800px;">
     Bienvenue sur la boutique Création Écolo !
     Découvrez nos créations originales inscrites dans une démarche écoresponsable avec des matières premières 100 % naturelles.
     Parcourez nos pièces issues de l’artisanat marocain (malles de rangement, chapeaux, suspensions, décorations murales …)
-    <button onclick="toggle()" class="btn btn-sm btn-secondary">Plus..</button>
+    <button onclick="toggle()" class="btn btn-sm btn-secondary"> Plus... </button>
     <div id="toggle" class=""></div>
   </p>
-  <div class="d-flex justify-content-center flex-wrap ">
+  <div class=" d-flex justify-content-center flex-wrap ">
     {% for menu in menus %}
-      <div class="card d-flex m-2" style="width: 430px;">
+      <div class="scroll card d-flex m-2" style="width: 560px;">
         <img src="/img/{{menu.image}}.jpg" class="d-flex" alt="..." >    
         <a  class="text-light bg-secondary txtFont2 text-decoration-none text-center" href="{{ path('app_menu_show',{'id': menu.id}) }}">
           {{ menu.name }}
