@@ -1,5 +1,5 @@
 
-<div class="d-flex justify-content-center" style="max-width:960px;border-radius: 5px;margin-top:-18px;">
+<div class="d-flex justify-content-center" style="max-width:1200px;border-radius: 5px;margin-top:-15px;">
     <nav class="navbar  navbar-expand-md navbar-light container-fluid fond1  ">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"data-bs-target="#navbarSupportedContent" 
                 aria-controls="navbarSupportedContent"aria-expanded="false" aria-label="Toggle navigation">
@@ -11,14 +11,14 @@
                     {{ render(controller("App\\Controller\\NavMenuController::navMenu"))}}
                 </li>
                 <li>
-                    <a class="nav-link txtFont2 d-flex text-secondary mt-2" aria-current="page" href="{{ path('app_products_index') }}">Tout</a>
+                    <a class="nav-link txtFont2 d-flex text-secondary mt-2" aria-current="page" href="{{ path('app_products_index') }}">Tout voir</a>
                 </li>
             </ul>
         
             
         </div>
     </nav>
-        <div class="d-flex flex-row justify-content-center fond1  ">
+        <div class="d-flex flex-row justify-content-center fond1  m-0">
             <a class="m-2 " aria-current="page" href="{{ path('cart_show') }}}">
             <i class="bi-cart text-secondary fs-3"> </i></a>
             </div>

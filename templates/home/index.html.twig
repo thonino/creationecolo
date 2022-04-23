@@ -3,7 +3,7 @@
 {% block title %}Accueil{% endblock %}
 
 {% block top %}
-<div class="container-fluid"style="max-width:960px;">
+<div class="container-fluid"style="max-width:1200px;">
   <div class="d-flex justify-content-center ">
     <div class="d-flex justify-content-center " >
         <div class="mx-2 mb-0 m-0">
@@ -41,7 +41,7 @@
                       </button>
                   </div>
   </div>
-  <p class="card mt-2 mb-2 ">
+  <p class="container mt-2 mb-2 ">
     Bienvenue sur la boutique Création Écolo !
     Découvrez nos créations originales inscrites dans une démarche écoresponsable avec des matières premières 100 % naturelles.
     Parcourez nos pièces issues de l’artisanat marocain (malles de rangement, chapeaux, suspensions, décorations murales …)
@@ -49,13 +49,14 @@
     <div id="toggle" class=""></div>
   </p>
   <div class="d-flex justify-content-center flex-wrap ">
-  {% for menu in menus %}
-  <div class="card d-flex m-2" style="width: 430px;">
-          <img src="/img/{{menu.image}}.jpg" class="d-flex" alt="..." >    
-          <a  class="text-light bg-secondary txtFont2 text-decoration-none text-center" href="{{ path('app_menu_show',{'id': menu.id}) }}">
-      {{ menu.name }}
-      </a></div>
-  {% endfor %}
+    {% for menu in menus %}
+      <div class="card d-flex m-2" style="width: 430px;">
+        <img src="/img/{{menu.image}}.jpg" class="d-flex" alt="..." >    
+        <a  class="text-light bg-secondary txtFont2 text-decoration-none text-center" href="{{ path('app_menu_show',{'id': menu.id}) }}">
+          {{ menu.name }}
+        </a>
+      </div>
+    {% endfor %}
   </div>
 
 </div>

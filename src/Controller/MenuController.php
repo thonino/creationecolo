@@ -5,10 +5,11 @@ namespace App\Controller;
 use App\Entity\Menu;
 use App\Form\MenuType;
 use App\Repository\MenuRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\CategoryRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 #[Route('/menu')]
 class MenuController extends AbstractController
@@ -31,18 +32,20 @@ class MenuController extends AbstractController
             $menuRepository->add($menu);
             return $this->redirectToRoute('app_menu_index', [], Response::HTTP_SEE_OTHER);
         }
-
         return $this->renderForm('menu/new.html.twig', [
             'menu' => $menu,
             'form' => $form,
+            
         ]);
     }
 
     #[Route('/{id}', name: 'app_menu_show', methods: ['GET'])]
-    public function show(Menu $menu): Response
+    public function show(Menu $menu,CategoryRepository $categoryRepository): Response
     {
+        $cats = $categoryRepository->findAll();
         return $this->render('menu/show.html.twig', [
             'menu' => $menu,
+            'cats'=>$cats,
         ]);
     }
 
