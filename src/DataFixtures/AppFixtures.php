@@ -147,7 +147,7 @@ class AppFixtures extends Fixture
             $products = new Products;
             $products->setName("Tapis A");
             $products->setPrice("25");
-            $products->setImage("tapis1");
+            $products->setImage("logo");
             $products->setDescription("Description");
             $products->setCategory($category);
             $manager->persist($products);

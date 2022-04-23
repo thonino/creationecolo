@@ -3,17 +3,17 @@
 {% block title %}{{menu.name}}{% endblock %}
 
 {% block body %}
-<div class="container d-flex align-items-center mt-1 ">
+<div class="scroll container d-flex align-items-center mt-1 ">
     {% for cat in cats %}
         {% if cat.menu == menu.name %}
-        <a class="dropdown-item text-dark text-center text-decoration-none px-1"aria-current="page" 
+        <a class="scroll dropdown-item text-dark text-center text-decoration-none px-1"aria-current="page" 
             href="{{ path('app_category_show',{'id': cat.id}) }}">
             {{ cat.name }}</a>
         
         {% endif %}
     {% endfor %}
 </div>
-<div class="container d-flex flex-column align-items-center">
+<div class="scroll container d-flex flex-column align-items-center">
     <h1 class="txt text-center">{{ menu.name }}</h1>
       <div class="card d-flex m-2" style="width: 200px;">
         <img src="/img/{{menu.image}}.jpg" class="d-flex" alt="..." >
