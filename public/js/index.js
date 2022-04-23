@@ -9,7 +9,7 @@ function delayBack() {
 function toggle() {
     var x = document.querySelector("#toggle");
     if (x.innerHTML === "") {
-      x.innerHTML = `<p class="scroll container mt-2 mb-2 "style="max-width: 800px;"> L’ensemble de nos réalisations sont entièrement conçues à la main et personnalisables afin de s’adapter à vos préférences et à votre environnement.
+      x.innerHTML = `<p class="text-center"> L’ensemble de nos réalisations sont entièrement conçues à la main et personnalisables afin de s’adapter à vos préférences et à votre environnement.
       Une question, une suggestion ? N’hésitez pas à nous contacter !
       Pour ne rien rater de nos dernières nouveautés et suivre notre actualité, retrouvez-nous sur Facebook, Instagram et Pinterest ! </p>`;
     } else {

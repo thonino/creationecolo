@@ -1,63 +1,53 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}Accueil{% endblock %}
-
+{% block title %}Création Ecolo{% endblock %}
 {% block top %}
-<div class="scroll container-fluid"style="max-width:1200px;">
-  <div class="d-flex justify-content-center ">
-    <div class="d-flex justify-content-center " >
-        <div class="mx-2 mb-0 m-0">
+  <div class="scroll">
+    <div class="d-flex justify-content-center">
+        <div class="mx-2 ">
           <img src="img/logo.jpg" width="120" c alt="...">
         </div>
-
           <div class="text-center" style="width:300px">
             <h5 class="fs-1 txt txtFont1 ">Création Ecolo</h5>
             <p class="text-secondary txtFont2"style="margin-top: -20px;font-size:14px">
               ARTISANAT MAROCAIN <br>
               100% FAIT MAIN<br>
             <span class="text-warning font-weight-bold">Livraison gratuite à partir de 100€ d'achat</span></p>
-
+          </div>
       </div>
     </div>
   </div>
   {% endblock %}
-
   {% block body %}
-  <div class="scroll mt-2 container" >
-                  <div id="carouselExampleCaptions" class="carousel slide " data-bs-ride="carousel">
-                      <div class="carousel-inner ">
-                          <div class="carousel-item active">
-                              <img src="img/carou1.jpg " class="col-12  " alt="...">
-                          </div>
-                          <div class="carousel-item">
-                              <img src="img/carou2.jpg" class="col-12 " alt="...">
-                      </div>
-                      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      </button>
-                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                          
-                      </button>
-                  </div>
+<div class="d-flex flex-column align-items-center">
+  <div id="scroll carouselExampleControls" class="carousel " data-bs-ride="carousel">
+    <div class="carousel-inner container">
+      <div class="carousel-item active mt-2">
+        <img src="img/carou1.jpg" class="d-block img-fluid" alt="...">
+      </div>
+      <div class="carousel-item mt-2">
+        <img src="img/carou2.jpg" class="d-block img-fluid" alt="...">
+      </div>
+    </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev"></button>
   </div>
-  <p class="scroll container mt-2 mb-2 "style="max-width: 800px;">
-    Bienvenue sur la boutique Création Écolo !
-    Découvrez nos créations originales inscrites dans une démarche écoresponsable avec des matières premières 100 % naturelles.
-    Parcourez nos pièces issues de l’artisanat marocain (malles de rangement, chapeaux, suspensions, décorations murales …)
-    <button onclick="toggle()" class="btn btn-sm btn-secondary"> Plus... </button>
-    <div id="toggle" class=""></div>
-  </p>
-  <div class=" d-flex justify-content-center flex-wrap ">
+  <div class="container" style="max-width:600px;">
+    <p class="text-center">
+      Bienvenue sur la boutique Création Écolo !
+      Découvrez nos créations originales inscrites dans une démarche écoresponsable avec des matières premières 100 % naturelles.
+      Parcourez nos pièces issues de l’artisanat marocain (malles de rangement, chapeaux, suspensions, décorations murales …)
+      <button onclick="toggle()" class="btn btn-sm btn-secondary"> Plus... </button>
+      <div id="toggle" class=""></div>
+    </p>
+  </div>
+  <div class="d-flex justify-content-center flex-wrap "style="max-width:1200px;">
     {% for menu in menus %}
-      <div class="scroll card d-flex m-2" style="width: 560px;">
-        <img src="/img/{{menu.image}}.jpg" class="d-flex" alt="..." >    
+      <div class="scroll card d-flex m-2" >
+        <img src="/img/{{menu.image}}.jpg" class="d-flex" alt="..."style="width: 430px;" >    
         <a  class="text-light bg-secondary txtFont2 text-decoration-none text-center" href="{{ path('app_menu_show',{'id': menu.id}) }}">
           {{ menu.name }}
         </a>
       </div>
     {% endfor %}
   </div>
-
 </div>
 {% endblock %}
