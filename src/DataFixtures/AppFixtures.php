@@ -20,10 +20,10 @@ class AppFixtures extends Fixture
         $this->setNouveautes($menu,$manager);
         $menu = new Menu;
         $menu->setNumbre("2");
-        $menu->setName("Rangements");
-        $menu->setImage("rangements");
+        $menu->setName("Decorations");
+        $menu->setImage("decorations");
         $manager->persist($menu);
-        $this->setRangements($menu,$manager);
+        $this->setDecorations($menu,$manager);
         $menu = new Menu;
         $menu->setNumbre("3");
         $menu->setName("Luminaires");
@@ -32,16 +32,16 @@ class AppFixtures extends Fixture
         $this->setLuminaires($menu,$manager);
         $menu = new Menu;
         $menu->setNumbre("4");
+        $menu->setName("Cuisines");
+        $menu->setImage("cuisines");
+        $manager->persist($menu);
+        $this->setCuisines($menu,$manager);
+        $menu = new Menu;
+        $menu->setNumbre("5");
         $menu->setName("Textiles");
         $menu->setImage("textiles");
         $manager->persist($menu);
         $this->setTextiles($menu,$manager);
-        $menu = new Menu;
-        $menu->setNumbre("5");
-        $menu->setName("Accessoires");
-        $menu->setImage("accessoires");
-        $manager->persist($menu);
-        $this->setAccessoires($menu,$manager);
     } 
         // Creation des Category
         public function setNouveautes(Menu $menu, ObjectManager $manager)
@@ -57,7 +57,7 @@ class AppFixtures extends Fixture
         $manager->persist($category);
         $this->setChaussures($category,$manager);
         }
-        public function setRangements(Menu $menu, ObjectManager $manager)
+        public function setDecorations(Menu $menu, ObjectManager $manager)
         {
         $category = new Category;
         $category->setName("Caisses");
@@ -78,15 +78,7 @@ class AppFixtures extends Fixture
         $manager->persist($category);
         $this->setSuspensions($category,$manager);
         }
-        public function setTextiles(Menu $menu, ObjectManager $manager)
-        {
-        $category = new Category;
-        $category->setName("Tapis");
-        $category->setMenu($menu);
-        $manager->persist($category);
-        $this->setTapis($category,$manager);
-        }
-        public function setAccessoires(Menu $menu, ObjectManager $manager)
+        public function setCuisines(Menu $menu, ObjectManager $manager)
         {
         $category = new Category;
         $category->setName("Sacs");
@@ -99,8 +91,14 @@ class AppFixtures extends Fixture
         $manager->persist($category);
         $this->setPlateaux($category,$manager);
         }
-
-
+        public function setTextiles(Menu $menu, ObjectManager $manager)
+        {
+        $category = new Category;
+        $category->setName("Tapis");
+        $category->setMenu($menu);
+        $manager->persist($category);
+        $this->setTapis($category,$manager);
+        }
         // Creation Produits
         public function setObjets(Category $category, ObjectManager $manager)
         {
@@ -142,16 +140,7 @@ class AppFixtures extends Fixture
             $products->setCategory($category);
             $manager->persist($products);
         }
-        public function setTapis(Category $category, ObjectManager $manager)
-        {
-            $products = new Products;
-            $products->setName("Tapis A");
-            $products->setPrice("25");
-            $products->setImage("logo");
-            $products->setDescription("Description");
-            $products->setCategory($category);
-            $manager->persist($products);
-        }
+
         public function setPaniers(Category $category, ObjectManager $manager)
         {
 
@@ -197,6 +186,17 @@ class AppFixtures extends Fixture
             $products->setDescription("Description");
             $products->setCategory($category);
             $manager->persist($products);
+        }
+            public function setTapis(Category $category, ObjectManager $manager)
+            {
+                $products = new Products;
+                $products->setName("Tapis A");
+                $products->setPrice("25");
+                $products->setImage("logo");
+                $products->setDescription("Description");
+                $products->setCategory($category);
+                $manager->persist($products);
+            
         $manager->flush();
     }
 }

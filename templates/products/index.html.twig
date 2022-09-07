@@ -1,36 +1,33 @@
 {% extends 'base.html.twig' %}
-
 {% block title %}Produit{% endblock %}
-
 {% block body %}
-<div class="scroll d-flex flex-column align-items-center">
-    <h3 class="fx-5 text-center text-dark">
-    Tout Nos Produits 
-    {% if is_granted('ROLE_ADMIN') %}
-    <a class="btn btn-success btn-sm"style="max-width: 350px;" href="{{ path('app_products_new') }}">Nouveau Produit</a>
-    {% endif %}
-    </h3>
-</div>
-<div class="scroll d-flex justify-content-center flex-wrap m-0">
-    {% for product in products %}
-        <div class="mx-2 text-light d-flex flex-column align-items-center" style="max-width: 250px">
-            {% if is_granted('ROLE_ADMIN') %}
-                <a class="btn btn-success mt-2 btn-sm"style="max-width: 200px;" href="{{ path('app_products_edit', {'id': product.id}) }}">Modifier</a>
-            {% endif %}
-            <h5 class="fs-6 text-secondary text-center mt-1">{{ product.name }}</h5>
-            <div class="scroll card col-12 text-center bg-light">
-                <img src="/img/{{product.image}}.jpg" class="card-img-top scroll" alt="...">
-                    <h5 class="card-card txt fs-3 "></span>{{ product.price }}€ </span></h5>
-                    <span class="d-flex justify-content-center mx-2">
-                    <a class="btn fond mb-2" href="{{ path('cart_add', {'products' : product.id})}}">Ajouter au panier</a><br>
-                    <a class="btn btn-secondary mb-2  mx-2" href="{{ path('app_products_show', {'id': product.id}) }}">Voir</a>
-                    </span>
-                
+    <div class="scroll d-flex flex-column align-items-center">
+        <h3 class="fx-5 text-center text-dark">
+        Tout Nos Produits 
+        {% if is_granted('ROLE_ADMIN') %}
+        <a class="btn btn-success btn-sm"style="max-width: 350px;" href="{{ path('app_products_new') }}">Nouveau Produit</a>
+        {% endif %}
+        </h3>
+    </div>
+    <div class="scroll d-flex justify-content-center flex-wrap m-0">
+        {% for product in products %}
+            <div class="mx-2 text-light d-flex flex-column align-items-center" style="max-width: 250px">
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a class="btn btn-success mt-2 btn-sm"style="max-width: 200px;" href="{{ path('app_products_edit', {'id': product.id}) }}">Modifier</a>
+                {% endif %}
+                <h5 class="fs-6 text-secondary text-center mt-1">{{ product.name }}</h5>
+                <div class="scroll card col-12 text-center bg-light">
+                    <img src="/img/{{product.image}}.jpg" class="card-img-top scroll" alt="...">
+                        <h5 class="card-card txt fs-3 "></span>{{ product.price }}€ </span></h5>
+                        <span class="d-flex justify-content-center mx-2">
+                        <a class="btn fond text-light mb-2" href="{{ path('cart_add', {'products' : product.id})}}">Ajouter au panier</a><br>
+                        <a class="btn btn-secondary mb-2  mx-2" href="{{ path('app_products_show', {'id': product.id}) }}">Voir</a>
+                        </span>
+                </div>
             </div>
-        </div>
-    {% else %}
-        <p>Aucune donnée à afficher</p>
-    {% endfor %}
-</div>
-
+        {% else %}
+            <p>Aucune donnée à afficher</p>
+        {% endfor %}
+    </div>
+    <br>
 {% endblock %}
