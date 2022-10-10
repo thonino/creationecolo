@@ -34,6 +34,9 @@ class Products
     #[ORM\Column(type: 'string', length: 50, nullable: true)]
     private $image3;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $stock;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -119,6 +122,18 @@ class Products
     public function setImage3(?string $image3): self
     {
         $this->image3 = $image3;
+
+        return $this;
+    }
+
+    public function getStock(): ?string
+    {
+        return $this->stock;
+    }
+
+    public function setStock(?string $stock): self
+    {
+        $this->stock = $stock;
 
         return $this;
     }
