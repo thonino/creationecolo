@@ -27,26 +27,37 @@
                         </div>
                         <script>
                             /* fonction() verifier si image2 existe*/
-                            function checkImage2(imageSrc, oui, non) 
+                            function checkImage2(imageSrc, oui, non) { 
+                                let img = new Image();
+                                img.onload = oui; 
+                                img.onerror = non;
+                                img.src = imageSrc;
+                                };
+                                checkImage2("/img/{{product.image2}}.jpg", 
+                                    /* si l'image existe*/
+                                    function() { 
+                                    conteneur = document.querySelector(".conteneur{{product.id}}");
+                                    conteneur.innerHTML = 
+                                        `
+                                        <div class="carousel-inner conteneur{{product.id}}">
+                                        <div class="carousel-item active">
+                                        <img src="/img/{{product.image}}.jpg" class="d-block w-100" alt="...">
+                                        </div>
+                                        <div class="carousel-item">
+                                        <img src="/img/{{product.image2}}.jpg" class="d-block w-100" alt="...">
+                                        </div>
+                                        `
+                                    }, 
+                                    /* si l'image n'éxiste pas*/
+                                    function(){ console.log("{{product.name}}: image2 introuvable"); } ); 
+
+                                /* fonction() verifier si image3 existe*/
+                                function checkImage3(imageSrc, oui, non) 
                                 { let img = new Image();img.onload = oui; img.onerror = non;img.src = imageSrc;};
-                            checkImage2("/img/{{product.image2}}.jpg", function() { /* l'image a été trouvée*/
+                                checkImage3("/img/{{product.image2}}.jpg", function() { 
                                 conteneur = document.querySelector(".conteneur{{product.id}}");
                                 conteneur.innerHTML = `
-                                <div class="carousel-inner conteneur{{product.id}}">
-                                    <div class="carousel-item active">
-                                    <img src="/img/{{product.image}}.jpg" class="d-block w-100" alt="...">
-                                    </div>
-                                    <div class="carousel-item">
-                                    <img src="/img/{{product.image2}}.jpg" class="d-block w-100" alt="...">
-                                    </div>`
-                            }, function(){ console.log("{{product.name}}: image2 introuvable"); } ); /* image introuvable*/
-                            /* fonction() verifier si image3 existe*/
-                            function checkImage3(imageSrc, oui, non) 
-                            { let img = new Image();img.onload = oui; img.onerror = non;img.src = imageSrc;};
-                            checkImage3("/img/{{product.image2}}.jpg", function() { 
-                                conteneur = document.querySelector(".conteneur{{product.id}}");
-                                conteneur.innerHTML = `
-                                <div class="carousel-inner conteneur{{product.id}}">
+                                    <div class="carousel-inner conteneur{{product.id}}">
                                     <div class="carousel-item active">
                                     <img src="/img/{{product.image}}.jpg" class="d-block w-100" alt="...">
                                     </div>
