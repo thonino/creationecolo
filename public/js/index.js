@@ -16,3 +16,4 @@ function toggle() {
       x.innerHTML = "";
     }
   } 
+

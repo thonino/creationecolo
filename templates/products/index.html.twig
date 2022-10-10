@@ -9,25 +9,74 @@
         {% endif %}
         </h3>
     </div>
+    {# afficher produits #}
     <div class="scroll d-flex justify-content-center flex-wrap m-0">
-        {% for product in products %}
-            <div class="mx-2 text-light d-flex flex-column align-items-center" style="max-width: 250px">
-                {% if is_granted('ROLE_ADMIN') %}
-                    <a class="btn btn-success mt-2 btn-sm"style="max-width: 200px;" href="{{ path('app_products_edit', {'id': product.id}) }}">Modifier</a>
-                {% endif %}
-                <h5 class="fs-6 text-secondary text-center mt-1">{{ product.name }}</h5>
-                <div class="scroll card col-12 text-center bg-light">
-                    <img src="/img/{{product.image}}.jpg" class="card-img-top scroll" alt="...">
-                        <h5 class="card-card txt fs-3 "></span>{{ product.price }}€ </span></h5>
-                        <span class="d-flex justify-content-center mx-2">
-                        <a class="btn fond text-light mb-2" href="{{ path('cart_add', {'products' : product.id})}}">Ajouter au panier</a><br>
-                        <a class="btn btn-secondary mb-2  mx-2" href="{{ path('app_products_show', {'id': product.id}) }}">Voir</a>
-                        </span>
+    {% for product in products %}
+        <div class="mx-2 text-light d-flex flex-column align-items-center" style="max-width: 250px">
+            {% if is_granted('ROLE_ADMIN') %}
+                <a class="btn btn-success mt-2 btn-sm"style="max-width: 200px;" href="{{ path('app_products_edit', {'id': product.id}) }}">Modifier</a>
+                <h3 class="fs-4 text-danger text-center mt-1">Stock: {{ product.stock }}</h3>
+            {% endif %}
+            <h5 class="fs-6 text-secondary text-center mt-1">{{ product.name }}</h5>
+            <div class="scroll card col-12 text-center bg-light">
+                {# carousel #}
+                <div id="carousel{{product.id}}" class="carousel slide carousel-dark" >
+                    <div class="carousel-inner conteneur{{product.id}}">
+                        <div class="carousel-item active">
+                            <img src="/img/{{product.image}}.jpg" class="d-block w-100" alt="...">
+                        </div>
+                        <script>
+                            /* fonction() verifier si image2 existe*/
+                            function checkImage2(imageSrc, oui, non) 
+                                { let img = new Image();img.onload = oui; img.onerror = non;img.src = imageSrc;};
+                            checkImage2("/img/{{product.image2}}.jpg", function() { /* l'image a été trouvée*/
+                                conteneur = document.querySelector(".conteneur{{product.id}}");
+                                conteneur.innerHTML = `
+                                <div class="carousel-inner conteneur{{product.id}}">
+                                    <div class="carousel-item active">
+                                    <img src="/img/{{product.image}}.jpg" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                    <img src="/img/{{product.image2}}.jpg" class="d-block w-100" alt="...">
+                                    </div>`
+                            }, function(){ console.log("{{product.name}}: image2 introuvable"); } ); /* image introuvable*/
+                            /* fonction() verifier si image3 existe*/
+                            function checkImage3(imageSrc, oui, non) 
+                            { let img = new Image();img.onload = oui; img.onerror = non;img.src = imageSrc;};
+                            checkImage3("/img/{{product.image2}}.jpg", function() { 
+                                conteneur = document.querySelector(".conteneur{{product.id}}");
+                                conteneur.innerHTML = `
+                                <div class="carousel-inner conteneur{{product.id}}">
+                                    <div class="carousel-item active">
+                                    <img src="/img/{{product.image}}.jpg" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                    <img src="/img/{{product.image2}}.jpg" class="d-block w-100" alt="...">
+                                    </div>
+                                    <div class="carousel-item">
+                                    <img src="/img/{{product.image3}}.jpg" class="d-block w-100" alt="...">
+                                    </div>`
+                            }, function(){ console.log("{{product.name}}: image3 introuvable"); } );
+                        </script>
+                    </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel{{product.id}}" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carousel{{product.id}}" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                 </div>
+                <h5 class="card-card txt fs-3 "></span>{{ product.price }}€ </span></h5>
+                <span class="d-flex justify-content-center mx-2">
+                    <a class="btn fond text-light mb-2" href="{{ path('cart_add', {'products' : product.id})}}">Ajouter au panier</a><br>
+                    <a class="btn btn-secondary mb-2  mx-2" href="{{ path('app_products_show', {'id': product.id}) }}">Voir</a>
+                </span>
             </div>
+        </div>
         {% else %}
             <p>Aucune donnée à afficher</p>
         {% endfor %}
-    </div>
-    <br>
+    </div><br>
 {% endblock %}
