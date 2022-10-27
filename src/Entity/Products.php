@@ -37,6 +37,9 @@ class Products
     #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private $stock;
 
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private $poid;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -134,6 +137,18 @@ class Products
     public function setStock(?string $stock): self
     {
         $this->stock = $stock;
+
+        return $this;
+    }
+
+    public function getPoid(): ?int
+    {
+        return $this->poid;
+    }
+
+    public function setPoid(?int $poid): self
+    {
+        $this->poid = $poid;
 
         return $this;
     }

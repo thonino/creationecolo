@@ -15,6 +15,7 @@ class ProductsType extends AbstractType
         $builder
             ->add('price',TextType::class,[ 'attr' => ['class' => 'form-control'], 'label' => 'Prix'])
             ->add('stock',TextType::class,[ 'attr' => ['class' => 'form-control'], 'label' => 'stock'])
+            ->add('poid',TextType::class,[ 'attr' => ['class' => 'form-control'], 'label' => 'poid'])
             ->add('name',TextType::class,[ 'attr' => ['class' => 'form-control'], 'label' => 'Nom'])
             ->add('image',TextType::class,[ 'attr' => ['class' => 'form-control'], 'label' => 'Image'])
             ->add('image2',TextType::class,[ 'attr' => ['class' => 'form-control'], 'label' => 'Image2'])
