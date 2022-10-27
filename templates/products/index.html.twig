@@ -19,7 +19,7 @@
             {% endif %}
             <h5 class="fs-6 text-secondary text-center mt-1">{{ product.name }}</h5>
             <div class="scroll card col-12 text-center bg-light">
-                {# carousel #}
+                {# début carousel #}
                 <div id="carousel{{product.id}}" class="carousel slide carousel-dark" >
                     <div class="carousel-inner conteneur{{product.id}}">
                         <div class="carousel-item active">
@@ -79,6 +79,7 @@
                             <span class="visually-hidden">Next</span>
                         </button>
                 </div>
+                {# fin carousel #}
                 <h5 class="card-card txt fs-3 "></span>{{ product.price }}€ </span></h5>
                 <span class="d-flex justify-content-center mx-2">
                     <a class="btn fond text-light mb-2" href="{{ path('cart_add', {'products' : product.id})}}">Ajouter au panier</a><br>
